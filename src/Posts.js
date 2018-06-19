@@ -3,6 +3,8 @@ import { Text,View } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchPosts } from './actions/FetchActions';
 
+import { getMovieList } from './api/ApiManager';
+
 class Post extends Component {
 
   componentWillMount() {
@@ -11,6 +13,11 @@ class Post extends Component {
 
   render() {
     console.log("Rendering");
+    getMovieList().subscribe({
+      next: x => console.log(x),
+      error: e => console.error(e),
+      complete: () => console.log('complete')
+    });
     return (
       <View>
         <Text>Rendering {this.props.posts.length}</Text>
