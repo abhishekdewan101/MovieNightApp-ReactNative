@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import {
   View,
   StatusBar,
   StyleSheet
 } from 'react-native';
 
-import { getMovieList } from './network/MovieApiManager';
+import AppStore from './model/AppStore';
+
+import MovieList from './features/movielist/components/MovieList';
+
 
 export default class App extends Component {
 
@@ -19,8 +23,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-      </View>
+      <Provider store={AppStore}>
+        <View style={styles.container}>
+          <MovieList></MovieList>
+        </View>
+      </Provider>
     );
   }
 }
@@ -31,15 +38,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
