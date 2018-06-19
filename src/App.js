@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import {
   View,
-  StatusBar,
-  StyleSheet
+  StatusBar
 } from 'react-native';
 
 import AppStore from './model/AppStore';
@@ -24,19 +23,10 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={AppStore}>
-        <View style={styles.container}>
+        <View>
           <MovieList/>
         </View>
       </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
