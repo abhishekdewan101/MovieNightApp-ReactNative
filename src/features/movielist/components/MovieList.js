@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
     View,
     Text,
-    FlatList
+    FlatList,
+    StyleSheet
 } from 'react-native';
 
 import { fetchMovieList } from '../../../network/movielist/MovieListActions';
@@ -21,12 +22,24 @@ class MovieList extends Component {
             <FlatList
                 data={this.props.movieList}
                 renderItem = {
-                    ({item}) => <Text>{item.title}</Text>
+                    ({item}) => <View style={styles.cardView}><Text style={styles.cardViewText}>{item.title}</Text></View>
                 }/>
         </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+   cardView: {
+       width: "auto",
+       height: 200,
+       backgroundColor: "#3a55ff",
+       marginBottom: 20,
+   },
+   cardViewText: {
+       color: "#FFFFFF"
+   }
+});
 
 function mapStateToProps(state) {
     return {
