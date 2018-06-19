@@ -25,7 +25,7 @@ export default class App extends Component {
     return (
       <Provider store={AppStore}>
         <View style={styles.container}>
-          <MovieList></MovieList>
+          <MovieList/>
         </View>
       </Provider>
     );

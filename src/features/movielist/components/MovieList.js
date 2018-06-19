@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
     View,
-    Text
+    Text,
+    FlatList
 } from 'react-native';
 
 import { fetchMovieList } from '../../../network/movielist/MovieListActions';
@@ -17,11 +18,15 @@ class MovieList extends Component {
     console.log(this.props);
     return (
         <View>
-            <Text>This is a movie list with {this.props.movieList.length} movies</Text>
+            <FlatList
+                data={this.props.movieList}
+                renderItem = {
+                    ({item}) => <Text>{item.title}</Text>
+                }/>
         </View>
     )
   }
-};
+}
 
 function mapStateToProps(state) {
     return {
