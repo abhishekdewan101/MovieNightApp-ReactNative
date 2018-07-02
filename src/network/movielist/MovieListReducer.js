@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const fetchMovieListReducer = function(state = initialState, action) {
-    console.log("Fetch Movie List Reducer Called with action - " + action.type);
+    // console.log("Fetch Movie List Reducer Called with action - " + action.type);
     switch(action.type) {
         case FETCH_MOVIE_LIST:
             state = Object.assign({},state,{movieList:action.payload});
