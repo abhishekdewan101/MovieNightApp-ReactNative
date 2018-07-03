@@ -9,14 +9,16 @@ import {
 
 import { fetchMovieList } from '../../../network/movielist/MovieListActions';
 
+import { translateString } from '../../../utils/Translator';
+
 
 class MovieList extends Component {
   componentWillMount() {
     this.props.fetchMovieList();
-  }  
+  }
 
   render() {
-    console.log(this.props);
+    console.log(translateString('test.welcome'));
     return (
         <View>
             <FlatList
